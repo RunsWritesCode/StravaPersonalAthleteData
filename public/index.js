@@ -27,11 +27,21 @@ var app = function() {
     var pTag = document.createElement('p');
     pTag.innerText = singleActivity.name;
     var pTag2 = document.createElement('p');
-    pTag2.innerText = singleActivity.distance/1000 + "m";
+    pTag2.innerText = convertToKm(singleActivity.distance) + " km";
+    var pTag3 = document.createElement('p');
+    pTag3.innerText = (singleActivity.moving_time/60).toFixed(0) + " minutes";
     insideDiv.appendChild(pTag);
     insideDiv.appendChild(pTag2);
+    insideDiv.appendChild(pTag3);
     return insideDiv
   };
+
+  var convertToKm = function(distance) {
+    var distance = distance/1000;
+    return distance
+  }
+
+
 
 
 window.addEventListener('load', app);
